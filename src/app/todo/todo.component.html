@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>task_alt</mat-icon>
+    <mat-card-title>Open Todo's</mat-card-title>
+  </mat-card-header>
+  <mat-list>
+    <mat-list-item *ngFor="let todo of todos | todo: false ">
+      <mat-checkbox [(ngModel)]="todo.checked">{{ todo.description }}</mat-checkbox>
+    </mat-list-item>
+  </mat-list>
+  <!--<div cdkDropList #todoList="cdkDropList" cdkDropListSortingDisabled [cdkDropListData]="todos" [cdkDropListConnectedTo]="[doneList]" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let todo of todos | todo: false" cdkDrag>{{todo.description}}</div>
+    <mat-list>
+      <mat-list-item *ngFor="let todo of todos | todo: false" cdkDrag>
+        <mat-checkbox [(ngModel)]="todo.checked">{{ todo.description }}</mat-checkbox>
+        {{ todo.id }} {{ todo.description }} {{ todo.checked }}
+      </mat-list-item>
+    </mat-list>
+  </div>-->
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>check_circle</mat-icon>
+    <mat-card-title>Finished Todo's</mat-card-title>
+  </mat-card-header>
+  <mat-list>
+    <mat-list-item *ngFor="let todo of todos | todo: true ">
+      <mat-checkbox [(ngModel)]="todo.checked">{{ todo.description }}</mat-checkbox>
+    </mat-list-item>
+  </mat-list>
+  <!--<div cdkDropList #doneList="cdkDropList" cdkDropListSortingDisabled [cdkDropListData]="todos" [cdkDropListConnectedTo]="[todoList]" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let todo of todos | todo: true" cdkDrag>{{todo.description}}</div>
+    <mat-list>
+      <mat-list-item *ngFor="let todo of todos | todo: true" cdkDrag>
+        <mat-checkbox [(ngModel)]="todo.checked">{{ todo.description }}</mat-checkbox>
+        {{ todo.id }} {{ todo.description }} {{ todo.checked }}
+      </mat-list-item>
+    </mat-list>
+  </div>-->
+</mat-card>
